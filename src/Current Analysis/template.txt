@@ -1,0 +1,22 @@
+.tltle Spice Style Simulation
+.lib 'ms018_enhanced_v1p10.lib' tt 
+.lib 'dio.lib' dio_tt
+
+.option runlvl=1
+.option symb=1
+.option method=gear
+.OPTION FAST
+.option converge=1
+.options dcon=-1
+.options post probe
+.options post_version=9601
+.option interp
+.option dcstep=1
+.global VDD 
+.global VSS
+
+Vdd1 VDD1 0 1.8V
+Vss1 VSS 0 0V
+
+
+.tran 0.4ns 39.2ns 
