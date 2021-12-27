@@ -1,5 +1,3 @@
-![](https://github.com/jinyier/EMSim/blob/main/doc/EMSim_LOGO.png)
-# EMSim 
-EMSim: Electromagnetic emanation Simulation at early design phrase
+# EMSim
 
-We open-source our layout level fast EM simulation tool, EMSim, to the public. 
+- EMSim is designed to predict the EM emanations from ICs at the layout level. It consists of three main steps: data preparation, current analysis and EM computation. We are working on open-sourcing the tool. We will do our best to address outstanding issues if reported.
