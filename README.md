@@ -52,13 +52,12 @@ Current analysis aims to simulate transient currents flowing in power grids of I
 
 ```
 generate_lvs_rule.py
-usage: neos [options] <positional_args>
-Allowed options:
-  [ --def_path ]               see help
-  [ --hcell_path ]                interactive mode
-  [ --xcell_path ]                script execution mode (open interactive shell and
-  [ ----lvs_rule_path ]  encryption/obfuscation mode
-
+optional arguments:
+  [ --help ]                   see help
+  [ --def_path ]               path to the def file, should end in .def
+  [ --hcell_path ]             path to the output hcell file
+  [ --xcell_path ]             path to the output xcell file
+  [ --lvs_rule_path ]          path to the output lvs_rule file
 ```
 
 ### Analyze Logic Power
