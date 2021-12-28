@@ -33,9 +33,6 @@ EMSim consists of three main steps: data preparation, current analysis and EM co
 
 ## Data Preparation
 
-
-## Current Analysis
-
 A RTL-to-GDS flow is a prerequisite to creating a layout database, which provides input data for EMSIM.
 
 ```
@@ -46,6 +43,9 @@ design.sdc                # timing constraints
 design.sdf                # timing data to specify interconnect delay and cell dealys
 design.spef               # parasitic data in SPEF
 ```
+
+## Current Analysis
+
 
 ## Electromagnetic Computation
 
