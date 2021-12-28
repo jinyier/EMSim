@@ -48,7 +48,18 @@ design.spef               # parasitic data in SPEF
 
 Current analysis aims to simulate transient currents flowing in power grids of ICs.
 
-### Extract Physical Parasitics
+### Extract Detailed Parasitics
+
+```
+generate_lvs_rule.py
+usage: neos [options] <positional_args>
+Allowed options:
+  [ --def_path ]               see help
+  [ --hcell_path ]                interactive mode
+  [ --xcell_path ]                script execution mode (open interactive shell and
+  [ ----lvs_rule_path ]  encryption/obfuscation mode
+
+```
 
 ### Analyze Logic Power
 
