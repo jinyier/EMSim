@@ -8,7 +8,7 @@
 
 # Table of contents
 - [Prerequisites](#prerequisites)
-- [Running EMSim](#running-EMSim)
+- [Running EMSim](#running-emsim)
     - [Data Preparation](#data-preparation)
     - [Current Analysis](#current-analysis)
     - [Electromagnetic Computation](#electromagnetic-computation)
@@ -71,18 +71,6 @@ We use `Calibre xRC` to perform gate-level extraction on the physical layout. Th
 ### Analyze Logic Power
 
 ```
-generate_ptpx_tcl.py
-optional arguments:
-  [ --help ]                       see help
-  [ --ptpx_tcl_path ]              path to the template ptpx file, should end in .tcl
-  [ --output_tcl_path ]            path to the output ptpx file, should end in ptpx
-  [ --start_time_point ]           start time point for power analysis, timescale 1ns/1ns
-  [ --num_plaintexts ]             amount of the required plaintexts
-  [ --desired_time_interval ]      desired time slice for power analysis, timescale 1ns/1ns
-  [ --ptpx_run_path ]              path to the run folder of ptpx
-```
-
-```
 process_vcd_file.py
 optional arguments:
   [ --help ]                       see help
@@ -93,6 +81,19 @@ optional arguments:
   [ --num_plaintexts ]             amount of the required plaintexts
   [ --desired_time_interval ]      desired time slice for power analysis, timescale 1ns/1ns
   [ --off_time_interval ]          Time interval between two-times power analysis, timescale 1ns/1ps
+```
+We obtain the switching activities of logic cells during functional simulation. For specific stimuli, `Synopsys VCS` records a vcd file in given time intervals. The `process_vcd_file.py` script cuts off the vcd file into vcd files corresponding to each stimulus. These vcd files will be used for power analysis. Also, the `generate_ptpx_tcl.py` script generates tcl files based on a template. These tcl files will control the workflow of power analysis.
+
+```
+generate_ptpx_tcl.py
+optional arguments:
+  [ --help ]                       see help
+  [ --ptpx_tcl_path ]              path to the template ptpx file, should end in .tcl
+  [ --output_tcl_path ]            path to the output ptpx file, should end in ptpx
+  [ --start_time_point ]           start time point for power analysis, timescale 1ns/1ns
+  [ --num_plaintexts ]             amount of the required plaintexts
+  [ --desired_time_interval ]      desired time slice for power analysis, timescale 1ns/1ns
+  [ --ptpx_run_path ]              path to the run folder of ptpx
 ```
 
 ```
