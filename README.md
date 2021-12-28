@@ -14,3 +14,9 @@
     - [Electromagnetic Computation](#electromagnetic-computation)
 - [Contributing](#contributing)
 - [License](#license)
+
+# Prerequisites
+At a minimum:
+
+- Python 3.8+ with PIP
+- VCS, Calibre xRC, Primetime PX, HSpice
