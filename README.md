@@ -59,6 +59,14 @@ optional arguments:
   [ --xcell_path ]                 path to the output xcell file
   [ --lvs_rule_path ]              path to the output lvs_rule file
 ```
+We use `Calibre xRC` to perform gate-level extraction on the physical layout. Through this we extract parasitics down to individual logic cells, while still preserving the cell’s internal structure and hierarchy. The `generate_lvs_rule.py` script creates folloing input files required for gate-level extraction.
+- Hcell file that includes all cells also listed in the xcell file.
+- Xcell file listing cells which will not undergo parasitic extraction.
+- Additional rules that required for the valid PEX rule file.
+- Note: 
+    - You should disable device types in the PEX rule file, if they have been used in this design.
+    - Output actual locations, widths, lengths, layers and thicknesses of resistance.
+    - Create a DSPF netlist you specified in the PEX Netlist statement.
 
 ### Analyze Logic Power
 
