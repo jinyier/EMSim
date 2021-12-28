@@ -24,7 +24,12 @@ At a minimum:
 
 # Running EMSim
 EMSim consists of three main steps: data preparation, current analysis and EM computation.
-![](https://github.com/jinyier/EMSim/blob/main/doc/Flow.jpg)
+
+<table>
+  <tr>
+    <td  align="center"><img src="./doc/Flow.jpg" ></td>
+  </tr>
+</table>
 
 ## Data Preparation
 
