@@ -62,6 +62,18 @@ optional arguments:
 
 ### Analyze Logic Power
 
+```
+generate_ptpx_tcl.py
+optional arguments:
+  [ --help ]                   see help
+  [ --ptpx_tcl_path ]          path to the template ptpx file, should end in .tcl
+  [ --output_tcl_path ]        path to the output ptpx file, should end in ptpx
+  [ --start_time_point ]       start time point for power analysis, timescale 1ns/1ns
+  [ --num_plaintexts ]         amount of the required plaintexts
+  [ --desired_time_interval ]  desired time slice for power analysis, timescale 1ns/1ns
+  [ --ptpx_run_path ]          path to the run folder of ptpx
+```
+
 ### Hybridize Spice Model
 
 ## Electromagnetic Computation
