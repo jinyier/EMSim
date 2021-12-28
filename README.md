@@ -1,7 +1,6 @@
-<table>
+
     <td  align="center"><img src="./doc/EMSim_LOGO.png" ></td>
 
-</table>
 
 - EMSim is designed to predict the EM emanations from ICs at the layout level.
 - Version 1.0
