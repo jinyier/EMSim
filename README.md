@@ -13,7 +13,7 @@
     - [Current Analysis](#current-analysis)
     - [Electromagnetic Computation](#electromagnetic-computation)
 - [Contributing](#contributing)
-- [License](#license)
+- [Copyright](#copyright)
 
 # Prerequisites
 At a minimum:
@@ -167,4 +167,6 @@ optional arguments:
 # Contributing
 
 
-# License
+# Copyright
+
+It is mainly intended for non-commercial use, such as academic research.
