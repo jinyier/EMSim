@@ -4,7 +4,7 @@
 - Version 1.0
 - Contacts: 
     - Haocheng Ma : hc_ma@tju.edu.cn
-    - Yier Jin : yier.jin@ece.ufl.edu
+    - Yier Jin : jinyier@gmail.com
 
 # Table of contents
 - [Prerequisites](#prerequisites)
