@@ -1,7 +1,5 @@
 <table>
-  <tr>
     <td  align="center"><img src="./doc/EMSim_LOGO.png" ></td>
-  </tr>
 
 </table>
 
