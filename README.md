@@ -20,3 +20,7 @@ At a minimum:
 
 - Python 3.8+ with PIP
 - VCS, Calibre xRC, Primetime PX, HSpice
+- Linux or Windows
+
+# Running EMSim
+EMSim consists of three main steps: data preparation, current analysis and EM computation.
