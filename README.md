@@ -28,5 +28,12 @@ EMSim consists of three main steps: data preparation, current analysis and EM co
   <tr>
     <td  align="center"><img src="./doc/Flow.jpg" ></td>
   </tr>
-
 </table>
+
+## Data Preparation
+
+
+## Current Analysis
+
+
+## Electromagnetic Computation
