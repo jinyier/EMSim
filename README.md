@@ -12,5 +12,5 @@
     - [Data Preparation](#data-preparation)
     - [Current Analysis](#current-analysis)
     - [Electromagnetic Computation](#electromagnetic-computation)
-    - [Contributing](#contributing)
-    - [License](#license)
+- [Contributing](#contributing)
+- [License](#license)
