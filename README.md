@@ -46,6 +46,13 @@ design.spef               # parasitic data in SPEF
 
 ## Current Analysis
 
+Current analysis aims to simulate transient currents flowing in power grids of ICs.
+
+### Extract Physical Parasitics
+
+### Analyze Logic Power
+
+### Hybridize Spice Model
 
 ## Electromagnetic Computation
 
