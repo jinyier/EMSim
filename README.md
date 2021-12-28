@@ -37,3 +37,9 @@ EMSim consists of three main steps: data preparation, current analysis and EM co
 
 
 ## Electromagnetic Computation
+
+
+# Contributing
+
+
+# License
