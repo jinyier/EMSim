@@ -83,6 +83,9 @@ optional arguments:
   [ --off_time_interval ]          Time interval between two-times power analysis, timescale 1ns/1ps
 ```
 We obtain the switching activities of logic cells during functional simulation. For specific stimuli, `Synopsys VCS` records a vcd file in given time intervals. The `process_vcd_file.py` script cuts off the vcd file into vcd files corresponding to each stimulus. These vcd files will be used for power analysis. Also, the `generate_ptpx_tcl.py` script generates tcl files based on a template `ptpx.tcl`. These tcl files will control the workflow of power analysis.
+- Note:
+    - You should alter file paths in `ptpx.tcl` beforehand.
+    - You should define `-waveform_interval` in `ptpx.tcl` beforehand.
 
 ```
 generate_ptpx_tcl.py
@@ -96,9 +99,6 @@ optional arguments:
   [ --ptpx_run_path ]              path to the run folder of ptpx
 ```
 `PrimeTime PX` performs time-based power analysis to find the transient power of logic cells. The `logic_cell_modeling.py` script processes power reports from power analysis, then model current profiles for each logic cell.
-- Note:
-    - You should alter file paths in `ptpx.tcl` beforehand.
-    - You should define `-waveform_interval` in `ptpx.tcl` beforehand.
 
 ```
 logic_cell_modeling.py
