@@ -87,10 +87,82 @@ optional arguments:
   [ --off_time_interval ]          Time interval between two-times power analysis, timescale 1ns/1ps
 ```
 
+```
+logic_cell_modeling.py
+optional arguments:
+  [ --help ]                       see help
+  [ --top_cell ]                   top cell in the design
+  [ --parasitic_netlist_path ]     path to the parasitic info file, should end in .dspf
+  [ --def_path ]                   path to the def file, should end in .def
+  [ --power_report_path ]          path to the power report file, should end in .out
+  [ --num_plaintexts ]             amount of the required plaintexts
+  [ --start_time_point ]           start time point in the initial power report
+  [ --desired_time_interval ]      desired time interval to use, timescale 1ns/1ns
+  [ --desired_time_scale ]         desired time scale used in power analysis
+  [ --power_report_init_path ]     path to the init power report file, should end in vcd_
+  [ --power_supply_voltage ]       supply voltage for logic cells
+```
+
 ### Hybridize Spice Model
+
+```
+logic_cell_to_current_source.py
+optional arguments:
+  [ --help ]                       see help
+  [ --lc_currents_path ]           path to the simulated logic cell currents
+  [ --power_port ]                 VDD and VSS port in physical layout
+  [ --mark_net ]                   start and break net in the .dspf file, should end in a blank
+  [ --netlist_path ]               path to the parasitic netlist, should end in .dspf
+  [ --desired_time_scale ]         desired time scale used in power analysis
+```
+
+```
+Prep_For_Sim.py
+optional arguments:
+  [ --help ]                       see help
+  [ --parasitic_netlist ]          path to the parasitic netlist, should end in .dspf
+  [ --metal_layers ]               target metal layers
+  [ --power_port ]                 VDD and VSS port in physical layout
+  [ --template_file ]              path to the default sp template file
+  [ --output_file ]                path to write the final sp to
+```
 
 ## Electromagnetic Computation
 
+```
+tr_to_h5.py
+optional arguments:
+  [ --help ]                       see help
+  [ --num_plaintexts ]             number of required plaintexts
+  [ --spice_result_path ]          path to result files from Spice simulation
+  [ --metal_layers ]               target metal layers
+  [ --output_file ]                path to final currents across metal wires
+```
+
+```
+Compute_EM_formulation.py
+optional arguments:
+  [ --help ]                       see help
+  [ --metal_layers ]               target metal layers
+  [ --transient_file ]             Path to the transient analysis file, should be in csv form
+  [ --use_gpu ]                    allow for gpu acceleration
+  [ --num_input_stimuli ]          Number of required plaintexts for em computation
+  [ --clock_period_ns ]            Amount of sample points per input stimuli
+  [ --start_time_ns ]              Start time point in simulation per input stimuli
+  [ --end_time_ns ]                End time point in simulation per input stimuli
+  [ --target_area_x ]              Target simulated area in x axial direction
+  [ --target_area_y ]              Target simulated area in y axial direction
+  [ --num_probe_x_tiles ]          Number of point grid in x axial direction
+  [ --num_probe_y_tiles ]          Number of point grid in y axial direction
+  [ --num_probe_z_tiles ]          Number of point grid in z axial direction
+  [ --layout_max_z ]               Target simulated distance in z axial direction, option value = true value x 2
+  [ --num_horizontal_tiles_per_wire ]  Number of horizontal tiles per metal wire
+  [ --num_vertical_tiles_per_wire ]    Number of vertical tiles per metal wire
+  [ --ns_per_sample ]              Simulated value of time scale per sample point
+  [ --output ]                     Path to write the output
+  [ --layout_min_x ]               Reference coordinate in x axial direction
+  [ --layout_min_y ]               Reference coordinate in y axial direction
+```
 
 # Contributing
 
