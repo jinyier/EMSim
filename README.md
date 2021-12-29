@@ -79,7 +79,7 @@ optional arguments:
   [ --header_path ]                Path to the header vcd file
   [ --start_time_point ]           Start time point for power analysis, timescale 1ns/1ps
   [ --num_plaintexts ]             amount of the required plaintexts
-  [ --desired_time_interval ]      desired time slice for power analysis, timescale 1ns/1ns
+  [ --desired_time_interval ]      desired time slice for power analysis, timescale 1ns/1ps
   [ --off_time_interval ]          Time interval between two-times power analysis, timescale 1ns/1ps
 ```
 We obtain the switching activities of logic cells during functional simulation. For specific stimuli, `Synopsys VCS` records a vcd file in given time intervals. The `process_vcd_file.py` script cuts off the vcd file into vcd files corresponding to each stimulus. These vcd files will be used for power analysis. Also, the `generate_ptpx_tcl.py` script generates tcl files based on a template `ptpx.tcl`. These tcl files will control the workflow of power analysis.
