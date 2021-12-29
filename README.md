@@ -189,7 +189,7 @@ optional arguments:
 - Yier Jin jinyier@gmail.com
 - Max Panoff m.panoff@ufl.edu
 - Jiaji He dochejj@tju.edu.cn
-- Yao Gao gaoyaya@tju.edu.cn
+- Ya Gao gaoyaya@tju.edu.cn
 
 # Copyright
 
