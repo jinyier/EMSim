@@ -48,7 +48,7 @@ design.spef               # parasitic data in SPEF
 
 Current analysis aims to simulate transient currents flowing in power grids of ICs.
 
-### Extract Detailed Parasitics
+### Detailed Parasitics
 
 ```
 generate_lvs_rule.py
@@ -68,7 +68,7 @@ We use `Calibre xRC` to perform gate-level extraction on the physical layout. Th
     - Output actual locations, widths, lengths, layers and thicknesses of resistance.
     - Create a DSPF netlist you specified in the PEX Netlist statement.
 
-### Analyze Logic Power
+### Cell Current
 
 ```
 process_vcd_file.py
@@ -116,7 +116,7 @@ optional arguments:
   [ --power_supply_voltage ]       supply voltage for logic cells
 ```
 
-### Hybridize Spice Model
+### Spice Model
 
 ```
 logic_cell_to_current_source.py
@@ -128,7 +128,7 @@ optional arguments:
   [ --netlist_path ]               path to the parasitic netlist, should end in .dspf
   [ --desired_time_scale ]         desired time scale used in power analysis
 ```
-
+The `logic_cell_to_current_source.py` script extracts the parasitic model of complete power grids from the DSPF netlist. It then processes current profiles of logic cells into Piece-Wise Linear (PWL) current sources.
 ```
 Prep_For_Sim.py
 optional arguments:
@@ -139,8 +139,13 @@ optional arguments:
   [ --template_file ]              path to the default sp template file
   [ --output_file ]                path to write the final sp to
 ```
+On the basis of a template `template.txt`, the `Prep_For_Sim.py` srcipt combines a parasitic model, current profiles, voltage and current source models to describe the physics and topology of a target circuit. It produces the final Spice model `final.sp` and files describing physical information of power grids in upper metal layers. The Spice-style simulator `HSpice` solves the transient current in each metal wire with different initial conditions, e.g., plaintext and key for cryptographic circuits.
+- Note:
+    - You should alter simulation settings in `template.txt` beforehand.
 
 ## Electromagnetic Computation
+
+Electromagnetic computation aims to approximate the EM emanations from currents across upper metal layers.
 
 ```
 tr_to_h5.py
@@ -151,6 +156,7 @@ optional arguments:
   [ --metal_layers ]               target metal layers
   [ --output_file ]                path to final currents across metal wires
 ```
+The `tr_to_h5.py` script converts spice results `final.tr` into h5 format `last_binary_run.h5`. Then the `Compute_EM_formulation.py` script computes magnetic field at a certain time, at a certain point. 
 
 ```
 Compute_EM_formulation.py
