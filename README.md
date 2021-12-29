@@ -12,7 +12,7 @@
     - [Data Preparation](#data-preparation)
     - [Current Analysis](#current-analysis)
     - [Electromagnetic Computation](#electromagnetic-computation)
-- [Contributing](#contributing)
+- [Contributors](#contributors)
 - [Copyright](#copyright)
 
 # Prerequisites
@@ -183,8 +183,12 @@ optional arguments:
   [ --layout_min_y ]               Reference coordinate in y axial direction
 ```
 
-# Contributing
+# Contributors
 
+- Haocheng Ma hc_ma@tju.edu.cn
+- Yier Jin jinyier@gmail.com
+- Max Panoff m.panoff@ufl.edu
+- Yao Gao gaoyaya@tju.edu.cn
 
 # Copyright
 
