@@ -191,6 +191,14 @@ optional arguments:
 - Jiaji He dochejj@tju.edu.cn
 - Ya Gao gaoyaya@tju.edu.cn
 
+| Name         | Affiliation           | email                                                     |
+| ------------ | --------------------- | --------------------------------------------------------- |
+| Haocheng Ma  | Tianjin University    | [hc_ma@tju.edu.cn](mailto:hc_ma@tju.edu.cn)               |
+| Yier Jin     | University of Florida | [jinyier@gmail.com](mailto:jinyier@gmail.com)             |
+| Max Panoff   | University of Florida | [m.panoff@ufl.edu](mailto:m.panoff@ufl.edu)               |
+| Jiaji He     | Tianjin University    | [dochejj@tju.edu.cn](mailto:dochejj@tju.edu.cn)           |
+| Ya Gao       | Tianjin University    | [gaoyaya@tju.edu.cn](mailto:gaoyaya@tju.edu.cn)           |
+
 # Copyright
 
 It is mainly intended for non-commercial use, such as academic research.
