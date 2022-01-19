@@ -185,12 +185,6 @@ optional arguments:
 
 # Contributors
 
-- Haocheng Ma hc_ma@tju.edu.cn
-- Yier Jin jinyier@gmail.com
-- Max Panoff m.panoff@ufl.edu
-- Jiaji He dochejj@tju.edu.cn
-- Ya Gao gaoyaya@tju.edu.cn
-
 | Name         | Affiliation           | email                                                     |
 | ------------ | --------------------- | --------------------------------------------------------- |
 | Haocheng Ma  | Tianjin University    | [hc_ma@tju.edu.cn](mailto:hc_ma@tju.edu.cn)               |
