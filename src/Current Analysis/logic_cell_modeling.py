@@ -322,6 +322,7 @@ def main(top_cell, parasitic_netlist_path, def_path, power_report_path, num_plai
     process_power_report_use(num_plaintexts, start_time_point, final_time_interval, power_report_init_path, power_report_path)
     current_trace = logic_cell_modeling(top_cell, num_plaintexts, final_time_interval, final_time_divider, power_report_path, instance_hierarchy, power_supply_voltage)
     np.save('instance_hierarchy.npy', instance_hierarchy)
+	np.save('cell_name.npy', cell_name)
     np.save("current_trace.npy", current_trace)
 
 

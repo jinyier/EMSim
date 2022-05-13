@@ -4,7 +4,7 @@ import argparse
 import time
 
 
-def LC_inserter(lc_current_traces_filename, power_port, mark_net, netlist_filename, desired_time_scale):
+def LC_inserter(lc_current_traces_filename, cell_name_path, power_port, mark_net, netlist_filename, desired_time_scale):
     """
     Replace logic cells with predefined current sources
     :param lc_current_traces_filename: path to the simulated logic cell currents
@@ -76,11 +76,18 @@ def LC_inserter(lc_current_traces_filename, power_port, mark_net, netlist_filena
                     
                 else:
                     continue
+
+        cell_name_array = np.load(cell_name_path)
+        cell_name_reorder = cell_name_array.tolist()
+        for index, cell in enumerate(cell_name_reorder):
+            cell_name_reorder[index] = cell.replace('X', 'I')
+        assert set(source_set) == set(cell_name_reorder), "Error: please check the instance reordering"
+
         print('Read parasitic file and current source, finished.')
         for current_plaintext in range(np.shape(lc_current_traces)[1]):
             tmp_lc_current_traces = lc_current_traces[:, current_plaintext, :]
             if current_plaintext == 0:
-                for index, cell in enumerate(source_set):
+                for index, cell in enumerate(cell_name_reorder):
                     chars_per_line = 0
                     new_line = cell + " " + cell + ':r' + vdd_port + ' ' + cell + ':r' + vss_port + ' PWL ( '
                     for time, current in enumerate(tmp_lc_current_traces[index][: -1]):
@@ -92,11 +99,11 @@ def LC_inserter(lc_current_traces_filename, power_port, mark_net, netlist_filena
                         new_line += next_point
                     new_netlist_file.write(new_line)
                     new_netlist_file.write(')\n\n')
-                print("Current plaintext index", current_plaintext, 'with', len(source_set), "logic cells")
+                print("Current plaintext index", current_plaintext, 'with', len(cell_name_reorder), "logic cells")
             elif current_plaintext > 0:
                 new_netlist_file.write('\n.alter\n')
                 last_lc_current_traces = lc_current_traces[:, current_plaintext - 1, :]
-                for index, cell in enumerate(source_set):
+                for index, cell in enumerate(cell_name_reorder):
                     if (np.array(tmp_lc_current_traces[index]) == np.array(last_lc_current_traces[index])).all():
                         continue
                     else:
@@ -111,7 +118,7 @@ def LC_inserter(lc_current_traces_filename, power_port, mark_net, netlist_filena
                             new_line += next_point
                         new_netlist_file.write(new_line)
                         new_netlist_file.write(')\n\n')
-                print("Current plaintext index", current_plaintext, 'with', len(source_set), "logic cells")
+                print("Current plaintext index", current_plaintext, 'with', len(cell_name_reorder), "logic cells")
 
     except Exception as e:
         print(e)
@@ -121,14 +128,16 @@ def LC_inserter(lc_current_traces_filename, power_port, mark_net, netlist_filena
         new_netlist_file.close()
 
 
-def main(lc_currents_path, power_port, mark_net, netlist_path, desired_time_scale):
-    LC_inserter(lc_currents_path, power_port, mark_net, netlist_path, desired_time_scale)
+def main(lc_currents_path, cell_name_path, power_port, mark_net, netlist_path, desired_time_scale):
+    LC_inserter(lc_currents_path, cell_name_path, power_port, mark_net, netlist_path, desired_time_scale)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--lc_currents_path", type=str, default="current_trace.npy",
                         help="Path to the simulated logic cell currents")
+    parser.add_argument("--cell_name_path", type=str, default="cell_name.npy",
+                        help="Path to the Reorder cell name from dspf file")
     parser.add_argument("--power_port", type=str, default=['VDD', 'VSS'],
                         help="VDD and VSS port in physical layout")
     parser.add_argument("--mark_net", type=str, default=['VDD ', '32 '],
@@ -140,6 +149,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     netlist_path = args.netlist_path
+    cell_name_path = args.cell_name_path
     power_port = args.power_port
     mark_net = args.mark_net
     lc_currents_path = args.lc_currents_path
@@ -147,7 +157,7 @@ if __name__ == "__main__":
 
     start_time = time.time()
     try:
-        sys.exit((main(lc_currents_path, power_port, mark_net, netlist_path, desired_time_scale)))
+        sys.exit((main(lc_currents_path, cell_name_path, power_port, mark_net, netlist_path, desired_time_scale)))
     except KeyboardInterrupt:
         sys.exit()
     except Exception as e:

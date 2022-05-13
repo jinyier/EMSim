@@ -3,7 +3,7 @@ import sys
 import argparse
 import time
 import h5py
-# import nvidia_smi
+import pynvml
 
 
 class EM_field_simulator():
@@ -81,9 +81,9 @@ class EM_field_simulator():
         # print(transient_current_info)
         if self.use_gpu:
             # get size of gpu
-            '''nvidia_smi.nvmlInit()
-            handle = nvidia_smi.nvmlDeviceGetHandleByIndex(0)
-            mempool = nvidia_smi.nvmlDeviceGetMemoryInfo(handle)
+            pynvml.nvmlInit()
+            handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+            mempool = pynvml.nvmlDeviceGetMemoryInfo(handle)
             # get size of the data
             # 32 bit float = 4 bytes
             sim_data_size = data_init.shape[0] * data_init.shape[1] * 4
@@ -118,8 +118,10 @@ class EM_field_simulator():
                 # now to recombine into the original output
                 final_out = h5py.File(final_output, 'w')
                 # create the file
-                x_locations = [str((x_tile*self.layout_max_x/self.num_probe_x_tiles + self.layout_min_x)* 1000000) for x_tile in range(self.num_probe_x_tiles)]
-                y_locations = [str((y_tile*self.layout_max_y/self.num_probe_y_tiles + self.layout_min_y) * 1000000) for y_tile in range(self.num_probe_y_tiles)]
+                x_locations = [str((x_tile * self.target_area_x / self.num_probe_x_tiles + self.layout_min_x) * 1000000)
+                               for x_tile in range(self.num_probe_x_tiles)]
+                y_locations = [str((y_tile * self.target_area_y / self.num_probe_y_tiles + self.layout_min_y) * 1000000)
+                               for y_tile in range(self.num_probe_y_tiles)]
                 out_file = h5py.File(self.output, 'w')
                 for x_loc in range(self.num_probe_x_tiles):
                     x_group = out_file.create_group(x_locations[x_loc])
@@ -142,7 +144,7 @@ class EM_field_simulator():
                 # after all points have been combined, close the file
                 out_file.close()
                 # and exit the program
-                sys.exit()'''
+                sys.exit()
                     
         # convert to cupy
         self.transient_current_info = self.qk.asarray(transient_current_info)
