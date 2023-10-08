@@ -6,7 +6,7 @@
 
 <table>
   <tr>
-    <td  align="center"><img src="./doc/EMSim+ vs. EMSim.jpg" ></td>
+    <td  align="center"><img src="../doc/EMSim+ vs. EMSim.jpg" ></td>
   </tr>
 </table>
 	
@@ -34,7 +34,7 @@ EMSim+ consists of three main steps: feature extraction, GAN model training and 
 
 <table>
   <tr>
-    <td  align="center"><img src="./doc/EMSim+ Flow.jpg" ></td>
+    <td  align="center"><img src="../doc/EMSim+ Flow.jpg" ></td>
   </tr>
 </table>
 
@@ -67,7 +67,7 @@ optional arguments:
   [ --current_map_train ]          generate cell current map for GAN training
   [ --current_map_test ]           generate cell current map for EM prediction
   
-
+```
 
 ### Power Grid Map
 
@@ -101,6 +101,7 @@ There is only one power grid map of one layout design, which is used in both the
     - You need to get the coordinates of VDD and VSS in the layout design.
     - You should choose different scripts for 2-pad and 4-pad power supply designs.
 
+```
 
 ### EM Map
 
@@ -143,7 +144,7 @@ optional arguments:
   [ --training_gird_map ]          input power grid map for model training
   [ --training_em_map ]            input EM map for model training 
 
-
+```
 ## EM Prediction
 
 The generator G is preserved and serves as an inference model for EM prediction.
@@ -164,7 +165,7 @@ optional arguments:
   [ --test_em_map ]                input EM map for evaluate GAN model 
 
 
-
+```
 # Contributors
 
 | Name         | Affiliation           | email                                                     |
