@@ -82,7 +82,7 @@ optional arguments:
   [ --layout_min_x ]               Reference coordinate in x axial direction
   [ --layout_min_y ]               Reference coordinate in y axial direction
   [ --power_grid_map ]             generate power grid map for GAN training and EM prediction
-
+```
 
 ```
 create_grid_map(4-pad).py
@@ -101,7 +101,7 @@ There is only one power grid map of one layout design, which is used in both the
     - You need to get the coordinates of VDD and VSS in the layout design.
     - You should choose different scripts for 2-pad and 4-pad power supply designs.
 
-```
+
 
 ### EM Map
 
@@ -121,11 +121,13 @@ optional arguments:
 
 ## GAN Model Training
 
-We aim to design and train a GAN for EM prediction. 
+
+We aim to design and train a GAN for EM prediction.
 - Note:
-	-The generator G accepts cell current maps, power grid maps and time sequence. 
-	-Both the EM maps predicted by G and the real EM maps, together with the input maps of G, are alternatively fed to the discriminator D for determination. 
-	-The results of D are further fed back to G to enhance the quality of the predicted EM maps.
+    - The generator G accepts cell current maps, power grid maps and time sequence.
+    - Both the EM maps predicted by G and the real EM maps, together with the input maps of G, are alternatively fed to the discriminator D for determination.
+    - The results of D are further fed back to G to enhance the quality of the predicted EM maps
+
 
 ```
 GAN4EM_training.py
