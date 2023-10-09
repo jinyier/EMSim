@@ -18,6 +18,7 @@ from discriminator import Discriminator
 import shutil
 from Logger import Logger
 import sys
+import argparse
 
 
 def getToolLogo():
@@ -35,18 +36,8 @@ def getToolLogo():
     return '\n'.join(logo) + '\n'
 
 
-# 保存运行过程的控制台信息
-sys.stdout = Logger("Default.txt", sys.stdout)
 
-num_probe_x_tiles = 48
-num_probe_y_tiles = 48
-time_steps = 20
-percent_valid_split = 0.9  # 10 percent of training points is used for validation during training
-learning_rate_val = 0.0005
-num_input_stimuli = 250
-decay_rate_val = 0.98
-#epochs = 100
-#batch_size = 64
+sys.stdout = Logger("Default.txt", sys.stdout)
 
 
 class CGAN():
@@ -222,15 +213,43 @@ class CGAN():
 
 if __name__ == '__main__':
     start_time = time()  # obtain the starting time of code.
+    parser = argparse.ArgumentParser()
 
+    parser.add_argument("--num_probe_x_tiles", type=int, default=48,
+                        help=" number of point grid in x axial direction ")
+    parser.add_argument("--num_probe_y_tiles", type=int, default=48,
+                        help=" number of point grid in y axial direction ")
+    parser.add_argument("--time_steps", type=int, default=20,
+                        help=" simulation time for each EM trace ")
+    parser.add_argument("--percent_valid_split", type=int, default=0.9,
+                        help=" 10% of training points is used for validation during training ")
+    parser.add_argument("--learning_rate_val", type=int, default=0.0005,
+                       help=" learning rate decays exponentially from 0.0005 ")
+    parser.add_argument("--num_input_stimuli", type=int, default=250,
+                        help=" number of plaintexts ")
+    parser.add_argument("--decay_rate_val", type=int, default=0.98,
+                        help="  learning rate with the discount factor 0.98 ")
+    parser.add_argument("--trained_model_path", type=str, default="./weights/generator_trained_weights.h5",
+                        help=" trained weight parameters ")
+    parser.add_argument("--test_current_map", type=str, default="./current_map_test.npy",
+                        help=" input cell current map for model training")
+    parser.add_argument("--test_grid_map", type=str, default="./power_grid_map.npy",
+                        help=" input power grid map for model training ")
+    parser.add_argument("--test_em_map", type=str, default="./em_map_test.npy",
+                        help=" input EM map for model training ")
 
-    # Model save path
-    trained_model_path = '../GAN Model Training/weights/generator_trained_weights.h5'
-
-    # load training dataset
-    test_current_map = 'current_map_test.npy'
-    test_grid_map = 'power_grid_map.npy'
-    test_em_map = 'em_map_test.npy'
+    args = parser.parse_args()
+    num_probe_x_tiles = args.num_probe_x_tiles
+    num_probe_y_tiles = args.num_probe_y_tiles
+    time_steps = args.time_steps
+    percent_valid_split = args.percent_valid_split  # 10 percent of training points is used for validation during training
+    learning_rate_val = args.learning_rate_val
+    num_input_stimuli = args.num_input_stimuli
+    decay_rate_val = args.decay_rate_val
+    trained_model_path = args.trained_model_path
+    test_current_map = args.test_current_map
+    test_grid_map = args.test_grid_map
+    test_em_map = args.test_em_map
 
     # exit()
     ##############################Pre-training Stage#####################################
