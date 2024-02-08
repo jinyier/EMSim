@@ -199,7 +199,7 @@ It is mainly intended for non-commercial use, such as academic research.
 
 # Citation
 
-If you use this software for your research, we ask you cite this publication: https://ieeexplore.ieee.org/abstract/document/10024840
+If you use this software for your research, we ask you to cite this publication: https://ieeexplore.ieee.org/abstract/document/10024840
 
 ```
 @ARTICLE{10024840,
