@@ -184,7 +184,7 @@ It is mainly intended for non-commercial use, such as academic research.
 
 # Citation
 
-If you use EMSim+ for your research, we ask you to cite this publication: https://ieeexplore.ieee.org/abstract/document/10323883
+If you utilize EMSim+ in your research, we kindly request citation of the respective publication：https://ieeexplore.ieee.org/abstract/document/10323883
 
 ```
 @INPROCEEDINGS{10323883,
