@@ -182,3 +182,20 @@ optional arguments:
 
 It is mainly intended for non-commercial use, such as academic research.
 
+# Citation
+
+If you use this software for your research, we ask you to cite this publication: https://ieeexplore.ieee.org/abstract/document/10323883
+
+```
+@INPROCEEDINGS{10323883,
+  author={Gao, Ya and Ma, Haocheng and Kong, Jindi and He, Jiaji and Zhao, Yiqiang and Jin, Yier},
+  booktitle={2023 IEEE/ACM International Conference on Computer Aided Design (ICCAD)}, 
+  title={EMSim+: Accelerating Electromagnetic Security Evaluation with Generative Adversarial Network}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-8},
+  keywords={Solid modeling;Semiconductor device measurement;Design automation;Simulation;Predictive models;Generative adversarial networks;Silicon;CAD for Security;Side-Channel Analysis;Generative Adversarial Network},
+  doi={10.1109/ICCAD57390.2023.10323883}}
+```
+
