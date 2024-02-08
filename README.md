@@ -196,3 +196,22 @@ optional arguments:
 # Copyright
 
 It is mainly intended for non-commercial use, such as academic research.
+
+# Citation
+
+If you use this software for your research, we ask you cite this publication: https://ieeexplore.ieee.org/abstract/document/10024840
+
+```
+@ARTICLE{10024840,
+  author={Ma, Haocheng and Panoff, Max and He, Jiaji and Zhao, Yiqiang and Jin, Yier},
+  journal={IEEE Transactions on Information Forensics and Security}, 
+  title={EMSim: A Fast Layout Level Electromagnetic Emanation Simulation Framework for High Accuracy Pre-Silicon Verification}, 
+  year={2023},
+  volume={18},
+  number={},
+  pages={1365-1379},
+  keywords={Integrated circuit modeling;Integrated circuits;Mathematical models;Computational modeling;Analytical models;Security;Layout;CAD for security;EM~emanation simulation;side channel analysis},
+  doi={10.1109/TIFS.2023.3239184}}
+```
+
+
